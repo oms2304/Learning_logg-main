@@ -147,3 +147,6 @@ EMAIL_HOST_PASSWORD = 'b8a3018c9fedfbd10ffb7528376277d1-3724298e-ee6eddfc'
 LOGIN_REDIRECT_URL = 'learning_logs:index'
 LOGOUT_REDIRECT_URL = 'accounts:login'
 LOGIN_URL = 'accounts:login'
+
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

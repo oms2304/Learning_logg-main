@@ -1,0 +1,13 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+ <p><a href = "{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
+
+ <p>Add a new entry:</p>
+ <form action= "{% url 'learning_logs:new_entry' topic.id %}" method='post'>
+    {% csrf_token %} <!-- cross site request forgery, prevents unauthoized access to the server-->
+    {{ form.as_div }} <!-- tells dajngo to render form as HTML <div></div> -->
+    <button name='submit'>Add entry</button>
+ </form>
+ 
+{% endblock content %}

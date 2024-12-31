@@ -1,18 +1,16 @@
 {% extends "learning_logs/base.html" %}
 
 {% block content %}
- <p><a href = "{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
-
- <p>Add a new entry:</p>
+ <p><a href = "{% url 'learning_logs:topic' topic.id %} " style="margin-left: -1.5px; margin-top:  5px">{{ topic }}</a></p>
  <form action= "{% url 'learning_logs:new_entry' topic.id %}" method='post'>
     {% csrf_token %} <!-- cross site request forgery, prevents unauthoized access to the server-->
     <!-- {{ form.as_div }} tells dajngo to render form as HTML <div></div> -->
 
-    <div>
-      {{ form.text.label_tag }}
+    <div class="form-group">
+      <label for="id_text"></label>
       {{ form.text }}
     </div>
-    <button type='submit' name='submit'>Add entry</button>
+    <button class='btn btn-secondary btn-sm mt-3' type='submit' name='submit'>Add entry</button>
  </form>
  <!-- Include TinyMCE script for rich text editor -->
  <script src="https://cdn.tiny.cloud/1/fn1qay9yq2je6w50f5siz9nwgq3ee07djrxlt74khedctmv7/tinymce/6/tinymce.min.js"></script>

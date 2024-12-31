@@ -1,13 +1,14 @@
 {% extends "learning_logs/base.html" %}
 
 {% block content %}
- <p>Add a new Topic:
-
+ <p class="d-flex justify-content-center" style="margin-left: -115px;">Topic title:
  </p>
+ <div class="  d-flex justify-content-center">
  <form action= "{% url 'learning_logs:new_topic' %}" method='post'>
     {% csrf_token %} <!-- cross site request forgery, prevents unauthoized access to the server-->
     {{ form.as_div }} <!-- tells dajngo to render form as HTML <div></div> -->
-    <button name = "submit">Add topic</button>
+    <button class='btn btn-secondary btn-sm mt-3' type='submit' name='submit'>Add</button>
  </form>
+</div>
  
 {% endblock content %}

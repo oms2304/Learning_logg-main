@@ -1,23 +1,26 @@
 {% extends 'learning_logs/base.html' %}
 <!--extends tag is used to inherit from the base html-->
 {% block page_header %}
-    <h1>Topics</h1>
+    <h2>Topics</h2>
 {% endblock page_header %}
 
 {% block content %}
 
-    <ul class="list-group border-bottom pb-2 mb-4">
+    <ul class="list-group border-bottom pb-2 mb-4   ">
+        <h4 class="card-header">
         {% for topic in topics %}
-            <li class="list-group-item border-0">
+            <li class="list-group-item border-0 d-flex justify-content-between ">
              <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
-             <a href="{% url 'learning_logs:remove_topic' topic.id %}">delete</a>
-               </li>
+             <a class='btn btn-secondary btn-sm ml-3' href="{% url 'learning_logs:remove_topic' topic.id %}">delete</a>
+            </li>
+
+        </h4>
 
         {% empty %} <!-- tells python if there are no items to print the line below-->
             <li class="list-group-item border-0">No topics have been added yet.</li>
         {% endfor %} <!--closes for loop-->
     </ul>
     
-    <a href = "{% url 'learning_logs:new_topic'%}">Add new topic</a>
+    <a class = "btn btn-outline-secondary btn-sm" href = "{% url 'learning_logs:new_topic'%}">Add new topic</a>
 
     {% endblock content %}

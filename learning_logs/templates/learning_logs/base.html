@@ -34,8 +34,8 @@
 
             <!-- Account-related links -->
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-
                {% if user.is_authenticated %}
+
                 <li class="nav-item">
                    <span class="navbar-text me-2">Hello, {{ user.username }}
                     </span></li>
@@ -70,6 +70,25 @@
             {% block content %}{% endblock content %}
         </div>       
       </main>
+      <script>
+        // Check if dark mode was previously enabled in localStorage
+        if (localStorage.getItem("darkMode") === "enabled") {
+            document.body.classList.add("dark-mode");
+        }
+    
+        // Toggle dark mode when the button is clicked
+        document.getElementById("toggle-dark-mode").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+    
+            // Save the current state of dark mode to localStorage
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+            }
+        });
+    </script>
+    
     </div>
     <script>
       tinymce.init({
@@ -81,12 +100,12 @@
   <style>
     a{
       text-decoration: none;
-      font-weight: bold;
+      font-weight: normal;
       font-size: large;
       margin-left: 10px;
 
     }
-     
+
   </style>
 </body>
 </html>

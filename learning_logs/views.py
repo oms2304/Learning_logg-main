@@ -102,4 +102,17 @@ def edit_entry(request, entry_id):
 
         
 
-            
+def remove_topic(request, topic_id):
+    topic = Topic.objects.get(id=topic_id)
+    topic.delete()
+
+    return redirect('learning_logs:topics')
+
+
+def remove_entry(request, entry_id):
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+    entry.delete()
+
+    return redirect('learning_logs:topic', topic_id= topic.id)
+    

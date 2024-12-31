@@ -9,8 +9,11 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
 
+    <script src="https://cdn.tiny.cloud/1/fn1qay9yq2je6w50f5siz9nwgq3ee07djrxlt74khedctmv7/tinymce/6/tinymce.min.js"></script>
+
 </head>
 <body>
+
     <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
         <div class="container-fluid">
            <a class="navbar-brand" href="{% url 'learning_logs:index' %}">
@@ -68,5 +71,21 @@
         </div>       
       </main>
     </div>
+    <script>
+      tinymce.init({
+          selector: 'textarea',  // Targets all textarea elements (you can also target specific ones like '#id_content')
+          plugins: 'code textcolor',
+          toolbar: 'undo redo | bold italic underline | fontsizeselect forecolor backcolor | code',
+      });
+  </script>
+  <style>
+    a{
+      text-decoration: none;
+      font-weight: bold;
+      font-size: larger;
+
+    }
+     
+  </style>
 </body>
 </html>

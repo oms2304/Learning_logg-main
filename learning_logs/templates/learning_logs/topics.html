@@ -10,6 +10,7 @@
         {% for topic in topics %}
             <li class="list-group-item border-0">
              <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+             <a href="{% url 'learning_logs:remove_topic' topic.id %}">delete</a>
                </li>
 
         {% empty %} <!-- tells python if there are no items to print the line below-->

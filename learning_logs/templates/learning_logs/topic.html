@@ -11,7 +11,7 @@
             <div class="card mb-4 shadow-sm">
                 <!-- Card header with timestamp and edit link -->
                 <h4 class="card-header d-flex justify-content-between">
-                    {{ entry.date_added|date:'M d, Y H:i' }}
+                    {{ entry.date_added|date:'M d, H:i' }}
                     <div class="d-flex">
                         <small><a class='btn btn-outline-secondary btn-sm'href="{% url 'learning_logs:edit_entry' entry.id %}">edit</a></small>
                         <small><a  class="btn btn-danger btn-sm ml-3" href="{% url 'learning_logs:remove_entry' entry.id %}">delete</a></small>

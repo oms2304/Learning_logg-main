@@ -70,30 +70,11 @@
             {% block content %}{% endblock content %}
         </div>       
       </main>
-      <script>
-        // Check if dark mode was previously enabled in localStorage
-        if (localStorage.getItem("darkMode") === "enabled") {
-            document.body.classList.add("dark-mode");
-        }
-    
-        // Toggle dark mode when the button is clicked
-        document.getElementById("toggle-dark-mode").addEventListener("click", function() {
-            document.body.classList.toggle("dark-mode");
-    
-            // Save the current state of dark mode to localStorage
-            if (document.body.classList.contains("dark-mode")) {
-                localStorage.setItem("darkMode", "enabled");
-            } else {
-                localStorage.setItem("darkMode", "disabled");
-            }
-        });
-    </script>
-    
     </div>
     <script>
       tinymce.init({
           selector: 'textarea',  // Targets all textarea elements (you can also target specific ones like '#id_content')
-          plugins: 'code textcolor',
+          plugins: 'textcolor',
           toolbar: 'undo redo | bold italic underline | fontsizeselect forecolor backcolor | code',
       });
   </script>

@@ -8,22 +8,24 @@
 
     
         {% for entry in entries %}
-            <div class="card mb-3">
+            <div class="card mb-4 shadow-sm">
                 <!-- Card header with timestamp and edit link -->
                 <h4 class="card-header d-flex justify-content-between">
                     {{ entry.date_added|date:'M d, Y H:i' }}
                     <div class="d-flex">
                         <small><a class='btn btn-outline-secondary btn-sm'href="{% url 'learning_logs:edit_entry' entry.id %}">edit</a></small>
-                        <small><a  class="btn btn-primary btn-sm ml-3" href="{% url 'learning_logs:remove_entry' entry.id %}">delete</a></small>
+                        <small><a  class="btn btn-danger btn-sm ml-3" href="{% url 'learning_logs:remove_entry' entry.id %}">delete</a></small>
                     </div>
                 </h4>
 
-                <div class="card-body">{{ entry.text|linebreaks }}</div>
+                <div class="card-body">
+                    <div class="card-text">{{ entry.text|safe }}</div>
+                </div>
                 
             </div>
             
         {% empty %}
-            <p>There are no entries for this topic yet.</p>
+            <p class="text-muted">There are no entries for this topic yet.</p>
         {% endfor %}
         <p>
             <a class="btn btn-outline-secondary btn-sm" style='margin-left: -0.8px;'href ="{% url 'learning_logs:new_entry' topic.id %}">Add new Entry</a>

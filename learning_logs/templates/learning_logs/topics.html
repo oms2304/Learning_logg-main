@@ -17,10 +17,10 @@
         </h4>
 
         {% empty %} <!-- tells python if there are no items to print the line below-->
-            <li class="list-group-item border-0">No topics have been added yet.</li>
+            <p class="text-muted" style="font-size:14pt; font-weight: normal;">No topics have been added yet.</p>
         {% endfor %} <!--closes for loop-->
     </ul>
     
-    <a class = "btn btn-outline-secondary btn-sm" href = "{% url 'learning_logs:new_topic'%}">Add new topic</a>
+    <a class = "btn btn-outline-secondary btn-sm" style="margin-left: -0px;" href = "{% url 'learning_logs:new_topic'%}">Add new topic</a>
 
     {% endblock content %}
